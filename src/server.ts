@@ -1,12 +1,11 @@
 import express, { Request, Response } from "express";
-import path from "path";
 import http from "http";
 import socketio from "socket.io";
-import ejs from 'ejs';
 
 interface Message{
     author:string,
     message:string,
+    room:string,
     timestamp:string
 }
 
@@ -14,13 +13,8 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server)
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'public'));
-app.engine('html', ejs.renderFile);
-app.set('view engine', 'html');
-
 app.use('/', (req:Request, res:Response)=>{
-    res.render("index.html")
+    res.send("hello world")
 });
 
 let messages:Message[] = [];
