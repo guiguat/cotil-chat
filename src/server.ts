@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import path from "path";
 import http from "http";
 import socketio from "socket.io";
+import ejs from 'ejs';
 
 interface Message{
     author:string,
@@ -15,7 +16,7 @@ const io = socketio(server)
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'public'));
-app.engine('html', require('ejs').renderFile);
+app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
 app.use('/', (req:Request, res:Response)=>{
