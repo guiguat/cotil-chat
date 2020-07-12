@@ -1,0 +1,28 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "a simple chat to learn websockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiguat/simple-chat.git"
+  },
+  "author": "Guilherme Guatura & Iuri Corrêa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guiguat/simple-chat/issues"
+  },
+  "homepage": "https://github.com/guiguat/simple-chat#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.7",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.51",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
