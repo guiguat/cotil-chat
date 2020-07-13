@@ -6,6 +6,7 @@ interface IMsgContext{
     setName(name:string):void;
     setRoom(room:string):void
 }
+
 export const MsgContext = React.createContext<IMsgContext>({} as IMsgContext);
 
 export const MsgProvider: React.FC = ({children}) => {
