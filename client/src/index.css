@@ -1,3 +1,6 @@
+:root{
+  --white: #ffffff;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,6 +9,47 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+h2{
+  margin:0;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.nav-title{
+  margin:0;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #17181D;
+  color: var(--white);
+  background-image: url("./assets/unicamp.png");
+  background-size: cover;
+  background-position: left;
+}
+
+.join-form{
+  background-color: #24272F;
+  padding: 3rem;
+  margin: 1rem 12rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+html, body, #root, #root>div {
+  height: 100%;
+  margin: 0;
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
