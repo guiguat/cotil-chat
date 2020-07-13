@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Navbar from '../../Components/Navbar';
 import { FiLogIn } from "react-icons/fi";
 import { Redirect } from 'react-router';
+import { useMsg } from '../../Contexts/msg';
 
 const Join: React.FC = () => {
-  const[name, setName] = useState("");
-  const[code, setCode] = useState("");
+  const { name, setName, room, setRoom } = useMsg();
   const[shouldRedirect, setShouldRedirect] = useState(false);
 
   function handleJoinSubmit(e:any){
@@ -26,9 +26,9 @@ const Join: React.FC = () => {
         <h2>Entre na sala:</h2>
         <form onSubmit={handleJoinSubmit} className="join-form">  
             <label htmlFor="name">Nome:</label>
-            <input id="name" value={name} onChange={e=>setName(e.target.value)}/>
+            <input className="input" value={name} onChange={e=>setName(e.target.value)}/>
             <label htmlFor="room">Código da sala:</label>
-            <input id="room" value={code} onChange={e=>setCode(e.target.value)}/>
+            <input className="input" value={room} onChange={e=>setRoom(e.target.value)}/>
             <button type="submit" className="btn" id="btn-join">
               <FiLogIn size={24} className="btn-icon"/>Entrar
             </button>
