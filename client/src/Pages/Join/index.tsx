@@ -26,9 +26,12 @@ const Join: React.FC = () => {
         <h2>Entre na sala:</h2>
         <form onSubmit={handleJoinSubmit} className="join-form">  
             <label htmlFor="name">Nome:</label>
-            <input className="input" value={name} onChange={e=>setName(e.target.value)}/>
+            <input className="input"
+             required value={name}
+             maxLength={20}
+             onChange={e=>setName(e.target.value)}/>
             <label htmlFor="room">Código da sala:</label>
-            <input className="input" value={room} onChange={e=>setRoom(e.target.value)}/>
+            <input className="input" required value={room} onChange={e=>setRoom(e.target.value)}/>
             <button type="submit" className="btn" id="btn-join">
               <FiLogIn size={24} className="btn-icon"/>Entrar
             </button>
