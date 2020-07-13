@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: 'Ubuntu', sans-serif;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
 }
 .mobile{
   display: none;
@@ -73,7 +74,6 @@ h2, label{
 }
 .btn{
   font-weight: 700;
-  text-rendering: geometricPrecision;
   outline: none;
   border: none;
   border-radius: 5px;
