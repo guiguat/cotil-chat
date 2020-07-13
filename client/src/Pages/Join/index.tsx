@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../../Components/Navbar';
+import { FiLogIn } from "react-icons/fi";
 
 const Join: React.FC = () => {
   return (
@@ -16,7 +17,9 @@ const Join: React.FC = () => {
           <input id="name"/>
           <label htmlFor="room">Código da sala:</label>
           <input id="room"/>
-          <button type="submit" id="btn-join">Entrar</button>
+          <button type="submit" className="btn" id="btn-join">
+            <FiLogIn size={24} className="btn-icon"/>Entrar
+          </button>
       </form>  
       <footer>
         <p>Made with ♥ by <br className="mobile"/> Guilherme Guatura & Iuri Corrêa</p>

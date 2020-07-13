@@ -65,17 +65,24 @@ h2, label{
 
 #btn-join{
   background-color: var(--red);
+  padding: 1rem 8rem;
+  color: var(--white);
+  box-shadow: 0px 0px 30px rgba(255, 38, 38, 0.4);
+  font-size: 24px;
+  margin-top: 1.5rem;
+}
+.btn{
+  font-weight: 700;
+  text-rendering: geometricPrecision;
   outline: none;
   border: none;
   border-radius: 5px;
-  padding: 1rem 8rem;
-  color: var(--white);
   cursor: pointer;
-  box-shadow: 0px 0px 30px rgba(255, 38, 38, 0.4);
-  font-size: 24px;
-  font-weight: 700;
-  text-rendering: geometricPrecision;
-  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.btn-icon{
+  margin-right: 1rem;
 }
 
 html, body, #root, #root>div {
