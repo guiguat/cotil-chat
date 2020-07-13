@@ -10,6 +10,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
 }
+a{
+  text-decoration: none;
+  color: var(--white) default;
+}
 .mobile{
   display: none;
 }
@@ -90,15 +94,22 @@ html, body, #root, #root>div {
   margin: 0;
 } 
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.nav-links{
+  display: flex;
+  align-items: center;
+}
+
+#arrow-back{
+  margin: .2rem 1rem 0rem 0rem;
 }
 
 footer p{
   margin-top: 5rem;
   text-align: center;
-  color: #8C8C8C;
+  color: #adadad!important;
+}
+footer p:hover{
+  text-decoration: underline;
 }
 
 @media only screen and (max-width: 482px) {
