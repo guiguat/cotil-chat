@@ -18,6 +18,9 @@ const Join: React.FC = () => {
           <input id="room"/>
           <button type="submit" id="btn-join">Entrar</button>
       </form>  
+      <footer>
+        <p>Made with ♥ by <br className="mobile"/> Guilherme Guatura & Iuri Corrêa</p>
+      </footer>
     </div>
   </>
   );

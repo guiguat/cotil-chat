@@ -9,11 +9,13 @@ body {
   font-family: 'Ubuntu', sans-serif;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.mobile{
+  display: none;
+}
 h2{
   margin:0;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 10vh;
 }
 h2, label{
   color: var(--white)
@@ -86,8 +88,25 @@ code {
     monospace;
 }
 
+footer p{
+  margin-top: 5rem;
+  text-align: center;
+  color: #8C8C8C;
+}
+
 @media only screen and (max-width: 482px) {
   #btn-join{
     padding: 1rem 2rem;
+  }
+  .mobile{
+    display: block;
+  }
+}
+@media only screen and (max-height: 650px){
+  h2{
+    margin-top: 3vh;
+  }
+  footer p{
+    margin-top: 2.5rem;
   }
 }
