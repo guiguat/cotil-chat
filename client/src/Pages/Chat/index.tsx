@@ -1,11 +1,14 @@
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { MdSend } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
+import { useMsg } from '../../Contexts/msg';
 import './style.css';
 
 const Chat: React.FC = () => {
+  const { name, room } = useMsg();
+  if(!name && !room) return <Redirect to="/"/>
   return (
     <>
       <div className="content">      
@@ -15,7 +18,7 @@ const Chat: React.FC = () => {
               <FiArrowLeft size={24} />
             </Link>
             <h1 className="nav-title">
-              Sala: 291290xf      
+              Sala: {room}      
             </h1>
           </div>
         </Navbar>
@@ -23,9 +26,15 @@ const Chat: React.FC = () => {
           <div id="interface-content">
             <div id="chat">
               <div className="msg-body">
+                <span className="msg-name">iuriar</span>
+                <p className="msg-content">
+                  lorem300
+                </p>
+              </div>
+              <div className="msg-body user">
                 <span className="msg-name">Iurir</span>
                 <p className="msg-content">
-                  Eae gostosa
+                  lorem300
                 </p>
               </div>
             </div>
@@ -36,16 +45,16 @@ const Chat: React.FC = () => {
               </button>
             </form> 
           </div>
+          <footer>
+            <p>
+              <a href="https://github.com/guiguat/simple-chat" target="_blank" rel="noopener noreferrer"> 
+                Made with ♥ by <br className="mobile"/> 
+                Guilherme Guatura
+                & Iuri Corrêa
+              </a>
+            </p>
+          </footer>
         </div>
-        <footer>
-          <p>
-            <a href="https://github.com/guiguat/simple-chat" target="_blank" rel="noopener noreferrer"> 
-              Made with ♥ by <br className="mobile"/> 
-              Guilherme Guatura
-              & Iuri Corrêa
-            </a>
-          </p>
-        </footer> 
       </div>
     </>
   );
