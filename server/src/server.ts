@@ -1,13 +1,7 @@
 import express, { Request, Response } from "express";
 import http from "http";
 import socketio from "socket.io";
-
-interface Message{
-    author:string,
-    message:string,
-    room:string,
-    timestamp:string
-}
+import { addUser, removeUser, getUser, getUsersInRoom, User } from "./users"; 
 
 const app = express();
 const server = http.createServer(app);
@@ -17,17 +11,39 @@ app.use('/', (req:Request, res:Response)=>{
     res.send("hello world")
 });
 
-let messages:Message[] = [];
+io.on('connect', (socket) => {
+    socket.on('join', ({ name, room }, callback) => {
+        const { error, user } = addUser({ id: socket.id, name, room });
 
-io.on('connection', socket => {
-    console.log(`Socket connected: ${socket.id}`);
+        if(error) return callback(error);
 
-    socket.emit('previousMessages', messages);
+        socket.join(user.room);
 
-    socket.on('sendMessage', data => {
-        messages.push(data);
-        socket.broadcast.emit('recievedMessage', data);
+        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
+        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+
+        io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+
+        callback();
+    });
+
+    socket.on('sendMessage', (message, callback) => {
+        const user = getUser(socket.id);
+
+        io.to(user?user.room : "" ).emit('message', { user: user?.name, text: message });
+
+        callback();
+    });
+
+    socket.on('disconnect', () => {
+        const user = removeUser(socket.id);
+
+        if(user) {
+            io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+            io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
+        }
     })
 });
+
 
 server.listen(3333);
