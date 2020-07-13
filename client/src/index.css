@@ -1,12 +1,12 @@
 :root{
   --red: #E81818;
-  --white:#DEDEDE
+  --white:#DEDEDE;
+  --dark: #17181D;
+  --gray: #35353C;
 }
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
-
 body {
   margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: Segoe UI,Helvetica Neue,Helvetica,Lucida Grande,Arial,Ubuntu,Cantarell,Fira Sans,sans-serif;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
 }
@@ -48,9 +48,9 @@ h2, label{
 }
 
 .join-form{
-  background-color: #24272F;
+  background-color: var(--gray);
   padding: 3rem;
-  margin: .5rem auto;
+  margin: 2rem auto 4rem auto;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -103,9 +103,13 @@ html, body, #root, #root>div {
 #arrow-back{
   margin: .2rem 1rem 0rem 0rem;
 }
-
+footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 footer p{
-  margin-top: 5rem;
+  margin-top: 2rem;
   text-align: center;
   color: #adadad!important;
 }
@@ -121,11 +125,14 @@ footer p:hover{
     display: block;
   }
 }
-@media only screen and (max-height: 650px){
+@media only screen and (max-height: 670px){
   h2{
     margin-top: 3vh;
   }
   footer p{
     margin-top: 2.5rem;
+  }
+  .join-form{
+    margin: 1rem auto;
   }
 }
