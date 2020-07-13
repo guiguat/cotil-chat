@@ -56,18 +56,21 @@ h2, label{
   border-radius: 10px;
 }
 
-#name, #room{
+.input{
   padding: .8rem 1rem;
   margin: .5rem 0rem 1rem 0rem;
   background-color: #DEDEDE;
   border: none;
   border-radius: 5px;
 }
-#name:focus, #room:focus{
+.input:focus{
   background-color: #F3F3F3;
   outline: none;
 }
-
+button{
+  outline: none;
+  border: none;
+}
 #btn-join{
   background-color: var(--red);
   padding: 1rem 8rem;
@@ -78,8 +81,6 @@ h2, label{
 }
 .btn{
   font-weight: 700;
-  outline: none;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   display: flex;
