@@ -16,7 +16,7 @@ const Join: React.FC = () => {
           <input id="name"/>
           <label htmlFor="room">Código da sala:</label>
           <input id="room"/>
-          <button type="submit" className="btn-join">Entrar</button>
+          <button type="submit" id="btn-join">Entrar</button>
       </form>  
     </div>
   </>
