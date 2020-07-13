@@ -1,10 +1,9 @@
 import React from 'react';
+import Routes from './Routes/routes';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Hello Cliente</h1>
-    </div>
+    <Routes />
   );
 }
 
