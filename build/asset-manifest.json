@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./static/css/main.e2e3f20f.chunk.css",
+    "main.js": "./static/js/main.b603faa5.chunk.js",
+    "main.js.map": "./static/js/main.b603faa5.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.5583eba1.js",
+    "runtime-main.js.map": "./static/js/runtime-main.5583eba1.js.map",
+    "static/js/2.60596ba4.chunk.js": "./static/js/2.60596ba4.chunk.js",
+    "static/js/2.60596ba4.chunk.js.map": "./static/js/2.60596ba4.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.66c6de1eced5969906f1c108fcfc25a7.js": "./precache-manifest.66c6de1eced5969906f1c108fcfc25a7.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.e2e3f20f.chunk.css.map": "./static/css/main.e2e3f20f.chunk.css.map",
+    "static/js/2.60596ba4.chunk.js.LICENSE.txt": "./static/js/2.60596ba4.chunk.js.LICENSE.txt",
+    "static/media/index.css": "./static/media/unicamp.ab94bd9e.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5583eba1.js",
+    "static/js/2.60596ba4.chunk.js",
+    "static/css/main.e2e3f20f.chunk.css",
+    "static/js/main.b603faa5.chunk.js"
+  ]
+}
