@@ -21,6 +21,7 @@ const Chat: React.FC<RouteProps> = ({location}) => {
         alert(error);
       }
     });
+    // eslint-disable-next-line
   },[ENDPOINT, location?.search])
 
   useEffect(()=>{
@@ -28,6 +29,7 @@ const Chat: React.FC<RouteProps> = ({location}) => {
       console.log(message)
       setMessages([...messages, message]);
     });
+    // eslint-disable-next-line
   },[message])
 
   const sendMessage = (event:any) => {
