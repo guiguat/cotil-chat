@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules ./src/server.ts",
-    "prod": "tsc && node ./src/server.js"
+    "prod:ts": "tsc && node ./src/server.js",
+    "prod": "node ./src/server.js"
   },
   "repository": {
     "type": "git",
