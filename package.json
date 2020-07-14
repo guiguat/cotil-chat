@@ -1,7 +1,7 @@
 {
-  "name": "simple-chat",
+  "name": "cotil-chat",
   "version": "1.0.0",
-  "description": "a simple chat to learn websockets",
+  "description": "a simple chat for COTIL students to learn websockets",
   "main": "server.js",
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules ./src/server.ts",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guiguat/simple-chat.git"
+    "url": "git+https://github.com/guiguat/cotil-chat.git"
   },
   "author": "Guilherme Guatura & Iuri Corrêa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/guiguat/simple-chat/issues"
+    "url": "https://github.com/guiguat/cotil-chat/issues"
   },
-  "homepage": "https://github.com/guiguat/simple-chat#readme",
+  "homepage": "https://github.com/guiguat/cotil-chat#readme",
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.7",
