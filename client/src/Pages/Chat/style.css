@@ -37,7 +37,7 @@
 }
 #btn-send{
     background: none;
-    cursor: pointer;
+    cursor: pointer!important;
 }
 .msg-body{
     background-color: var(--white);
