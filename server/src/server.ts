@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const io = socketio(server)
 
 app.use('/', (req:Request, res:Response)=>{
-    res.send("hello world")
+    res.send("Server working properly")
 });
 
 io.on('connect', (socket) => {
@@ -19,8 +19,8 @@ io.on('connect', (socket) => {
 
         socket.join(user.room);
 
-        socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
-        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+        socket.emit('message', { user: 'admin', text: `${user.name}, bem-vindo a sala ${user.room}.`});
+        socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} entrou!` });
 
         io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
@@ -39,7 +39,7 @@ io.on('connect', (socket) => {
         const user = removeUser(socket.id);
 
         if(user) {
-            io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+            io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} saiu.` });
             io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
         }
     })
