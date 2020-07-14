@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { MdSend } from 'react-icons/md';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, RouteProps } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
-import { useMsg } from '../../Contexts/msg';
+import { IMessage, useMsg } from '../../Contexts/msg';
+import io from "socket.io-client";
 import './style.css';
+import Message from './Message';
+let socket:any;
+const Chat: React.FC<RouteProps> = ({location}) => {
+  const { name, room, setMessages, messages } = useMsg();
+  const [message, setMessage] = useState('');
+  const ENDPOINT = 'http://localhost:3333';
+  
+  useEffect(()=>{
+    if(!name && !room) return;
+    socket = io(ENDPOINT);
+    socket.emit('join', { name, room }, (error:any) => {
+      if(error) {
+        alert(error);
+      }
+    });
+  },[ENDPOINT, location?.search])
 
-const Chat: React.FC = () => {
-  const { name, room } = useMsg();
+  useEffect(()=>{
+    socket?.on('message', (message: IMessage) => {
+      console.log(message)
+      setMessages([...messages, message]);
+    });
+  },[message])
+
+  const sendMessage = (event:any) => {
+    event.preventDefault();
+    if(message) {
+      socket?.emit('sendMessage', message, () => { setMessage('') });
+    }
+  }
+  
   if(!name && !room) return <Redirect to="/"/>
+
   return (
     <>
       <div className="content">      
@@ -25,22 +55,15 @@ const Chat: React.FC = () => {
         <div id="interface">
           <div id="interface-content">
             <div id="chat">
-              <div className="msg-body">
-                <span className="msg-name">iuriar</span>
-                <p className="msg-content">
-                  lorem300
-                </p>
-              </div>
-              <div className="msg-body user">
-                <span className="msg-name">Iurir</span>
-                <p className="msg-content">
-                  lorem300
-                </p>
-              </div>
+              {
+                messages.map((message, i) =>(
+                  <Message key={i} message={message}/>
+                ))
+              }
             </div>
-            <form id="msg-form">
-              <input type="text" className="input"/>
-              <button id="btn-send">
+            <form id="msg-form" onSubmit={sendMessage}>
+              <input type="text" value={message} onChange={e=>setMessage(e.target.value)} className="input"/>
+              <button id="btn-send" type="submit">
                 <MdSend size={24} color="#DEDEDE"/>
               </button>
             </form> 
