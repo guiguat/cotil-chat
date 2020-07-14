@@ -11,7 +11,7 @@ let socket:any;
 const Chat: React.FC<RouteProps> = ({location}) => {
   const { name, room, setMessages, messages } = useMsg();
   const [message, setMessage] = useState('');
-  const ENDPOINT = 'http://localhost:3333';
+  const ENDPOINT = 'https://cotil-chat.herokuapp.com/';
   
   useEffect(()=>{
     if(!name && !room) return;
