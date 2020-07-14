@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { MdSend } from 'react-icons/md';
-import { Link, Redirect, RouteProps } from 'react-router-dom';
+import { Redirect, RouteProps } from 'react-router-dom';
 import Navbar from '../../Components/Navbar';
 import { IMessage, useMsg } from '../../Contexts/msg';
 import io from "socket.io-client";
@@ -38,7 +38,7 @@ const Chat: React.FC<RouteProps> = ({location}) => {
       socket?.emit('sendMessage', message, () => { setMessage('') });
     }
   }
-  
+
   if(!name && !room) return <Redirect to="/"/>
 
   return (
@@ -46,9 +46,9 @@ const Chat: React.FC<RouteProps> = ({location}) => {
       <div className="content">      
         <Navbar>
           <div className="nav-links">
-            <Link to="/" id="arrow-back">
+            <a id="arrow-back" href="/">
               <FiArrowLeft size={24} />
-            </Link>
+            </a>
             <h1 className="nav-title">
               Sala: {room}      
             </h1>
